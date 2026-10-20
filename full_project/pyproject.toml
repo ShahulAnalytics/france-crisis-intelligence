@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "france-crisis-intelligence"
+version = "1.0.0"
+description = "Evidence-first monitoring and analysis of France's economic and social indicators"
+requires-python = ">=3.10"
+dependencies = ["pandas>=2.1", "numpy>=1.26", "requests>=2.31", "PyYAML>=6.0", "plotly>=5.18", "streamlit>=1.32", "scikit-learn>=1.4", "feedparser>=6.0", "fastapi>=0.110", "uvicorn[standard]>=0.27", "pydantic>=2.6"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "."]
+testpaths = ["tests"]
