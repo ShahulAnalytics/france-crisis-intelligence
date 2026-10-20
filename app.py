@@ -142,12 +142,12 @@ st.subheader("France food-price inflation")
 def load_food_inflation():
     url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_minr"
     params = {
-        "geo": "FR",
-        "coicop": "CP01",
-        "unit": "RCH_A",
-        "freq": "M",
-        "lang": "EN"
-    }
+    "GEO": "FR",
+    "COICOP": "CP01",
+    "unit": "RCH_A",
+    "freq": "M",
+    "lang": "EN"
+}
     response = requests.get(url, params=params, timeout=25)
     response.raise_for_status()
     data = response.json()
