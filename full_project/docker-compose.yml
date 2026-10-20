@@ -1,0 +1,18 @@
+services:
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "src/france_crisis/dashboard.py", "--server.address=0.0.0.0", "--server.port=8501"]
+    ports: ["8501:8501"]
+    environment:
+      FRANCE_CRISIS_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+  api:
+    build: .
+    command: ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    ports: ["8000:8000"]
+    environment:
+      FRANCE_CRISIS_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data:ro
