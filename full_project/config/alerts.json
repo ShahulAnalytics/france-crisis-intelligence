@@ -1,0 +1,5 @@
+{
+  "minimum_observations": 24,
+  "severity_thresholds_standardised_deviation": {"watch": 2.0, "elevated": 3.0, "severe": 4.0},
+  "interpretation": "Generic historical anomaly thresholds for research triage; not official emergency levels or calibrated probabilities."
+}
