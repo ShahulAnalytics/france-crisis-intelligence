@@ -1,0 +1,26 @@
+sources:
+  - name: Eurostat
+    url: https://ec.europa.eu/eurostat/web/main/data/database
+    type: official_statistics
+    use: Harmonised inflation, employment, national accounts
+    caveat: Check dataset code, dimensions, units, revisions, and latest reference period.
+  - name: INSEE
+    url: https://www.insee.fr/en/accueil
+    type: official_statistics
+    use: French national accounts, prices, employment, household data
+    caveat: Prefer published tables or documented APIs; record release dates.
+  - name: European Central Bank
+    url: https://data.ecb.europa.eu/
+    type: official_statistics
+    use: Euro exchange rates and monetary/financial indicators
+    caveat: A currency move is not itself evidence of a French domestic crisis.
+  - name: Banque de France
+    url: https://www.banque-france.fr/en
+    type: official_statistics_and_analysis
+    use: French financial and economic analysis
+    caveat: Distinguish projections from observed data.
+  - name: Eurostat Food Prices
+    url: https://ec.europa.eu/eurostat/web/hicp/database
+    type: official_statistics
+    use: Harmonised consumer price categories
+    caveat: Food price inflation does not measure physical availability or food insecurity.
