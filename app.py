@@ -134,3 +134,14 @@ st.subheader("Next development steps")
 st.write("1. Add official food-price and unemployment indicators.")
 st.write("2. Validate dates, units, missing values, and source quality.")
 st.write("3. Evaluate forecasts before using them in crisis reports.")
+
+st.divider()
+st.subheader("Food-price inflation: next data connection")
+st.write(
+    "Next, we will connect an official Eurostat food-price series "
+    "and compare it with overall inflation."
+)
+st.markdown(
+    "[Open Eurostat HICP monthly rate dataset](https://ec.europa.eu/"
+    "eurostat/databrowser/view/prc_hicp_minr/default/table?lang=en)"
+)
