@@ -1,0 +1,24 @@
+name: Full project tests
+on:
+  push:
+    paths:
+      - 'full_project/**'
+      - '.github/workflows/full-project-tests.yml'
+  pull_request:
+    paths:
+      - 'full_project/**'
+      - '.github/workflows/full-project-tests.yml'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: full_project
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: python -m pytest -q
