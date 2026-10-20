@@ -1,0 +1,4 @@
+claim_id,claim,status,source_url,source_date,notes
+CL-001,France is experiencing a broad national crisis,unverified,,,Requires multi-indicator evidence and careful definition
+CL-002,Food prices are increasing faster than household income,unverified,,,Compare matching periods and compatible income/price definitions
+CL-003,Euro exchange-rate changes are worsening French household purchasing power,unverified,,,Requires causal context and import exposure analysis
