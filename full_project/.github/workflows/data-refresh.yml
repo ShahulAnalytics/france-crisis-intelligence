@@ -1,0 +1,32 @@
+name: Refresh public indicators
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 6 * * 1-5"
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e .
+        working-directory: full_project
+      - run: python -m france_crisis.cli refresh --output data
+        working-directory: full_project
+      - run: python -m france_crisis.cli news --output data
+        working-directory: full_project
+      - run: python -m france_crisis.cli alerts --data data --output reports/alerts.json
+        working-directory: full_project
+      - run: python -m france_crisis.cli report --data data --output reports/france_crisis_report.md --pdf reports/france_crisis_report.pdf
+        working-directory: full_project
+      - name: Commit generated artifacts
+        working-directory: full_project
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/processed reports
+          git diff --cached --quiet || (git commit -m "chore: refresh France indicators" && git push)
