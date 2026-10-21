@@ -12,6 +12,25 @@ st.set_page_config(
 st.title("🇫🇷 France Crisis Intelligence")
 st.caption("Economic and social stress monitoring dashboard")
 
+st.subheader("Latest verified France indicators")
+st.caption("Official releases available as of 20 October 2026. Each measure has its own reference period.")
+k1, k2, k3, k4 = st.columns(4)
+k1.metric("CPI inflation", "3.1%", "September 2026 · y/y")
+k2.metric("Food inflation", "1.4%", "September 2026 · y/y")
+k3.metric("Unemployment", "8.3%", "Q2 2026")
+k4.metric("GDP growth", "0.0%", "Q2 2026 · q/q")
+st.markdown(
+    "Sources: [INSEE CPI release](https://www.insee.fr/en/statistiques/9080263) · "
+    "[INSEE economic dashboard](https://www.insee.fr/en/statistiques/2405582) · "
+    "[INSEE Q2 national accounts](https://www.insee.fr/en/statistiques/9040046?sommaire=9010792)"
+)
+st.warning(
+    "Interpretation: renewed price pressure is concentrated in energy (up 21.3% year on year in September). "
+    "Food inflation was 1.4%. GDP was flat in Q2 and household purchasing power per consumption unit fell "
+    "0.6% quarter on quarter. These indicators show economic pressure, but do not alone prove a food-supply crisis."
+)
+
+
 @st.cache_data(ttl=3600)
 def load_inflation_data():
     url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/prc_hicp_manr"
